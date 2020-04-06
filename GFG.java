@@ -20,6 +20,6 @@ public static void main(String args[])
     if(result == -1) 
         System.out.print("Element is not present in array"); 
     else
-        System.out.print("Element is present at index " + result); 
+        System.out.print("Element is present  " + result); 
 } 
 } 
