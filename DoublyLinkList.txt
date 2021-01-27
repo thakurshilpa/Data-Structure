@@ -1,0 +1,134 @@
+public class DoublyLinkedlist
+{
+    private ListNode head;
+    private ListNode tail;
+    private int length;
+    private class ListNode
+    {
+       // private int data;
+        private ListNode next;
+        private ListNode previous;
+        private int data ;
+        private ListNode(int data)a
+        {this.data=data;}
+    }
+    public DoublyLinkedlist()
+    {
+        this.head=null;
+        this.tail=null;
+        this.length=0;
+    }
+
+    
+     public void displayforward()
+     { 
+         if(head==null)
+          {return;}
+         ListNode temp=head;
+         while(temp!=null)
+         {
+             System.out.print(temp.data+"------>");
+             temp=temp.next;
+         }
+          System.out.print("null");
+         
+     } 
+     
+     public void displayBackward()
+     { if(tail==null)
+     {return;}
+         ListNode temp=tail;
+         while(temp!=null)
+         {
+             System.out.print(temp.data+"------>");
+             temp=temp.previous;
+         }
+          System.out.print("null");
+         
+     } 
+     
+     //Check isEmpty
+     public boolean isEmpty()
+     {return length == 0;}
+     //insert at first
+     public void insertFirst(int value)
+     {
+         ListNode node=new ListNode(value);
+         if(isEmpty())
+         {tail=node;}
+         else{head.previous=node;}
+         node.next=head;
+         head=node;
+         length++;
+     }
+     //insertatlast
+       public void insertLast(int value)
+     {
+         ListNode node=new ListNode(value);
+         if(isEmpty())
+         {head=node;}
+         else{tail.next=node;}
+         node.previous=tail;
+         tail=node;
+         length++;
+     }  
+     //length of list
+     public int lengthOfList()
+     {return length;}
+     //delete fromstart
+     public void deleteFirst()
+     {
+         if(isEmpty())
+         {System.out.println("Empty List");}
+         if(tail==head)
+         {tail=null;head=null;}
+         else{
+         ListNode temp;
+         temp=head.next;
+         head=null;
+         head=temp;
+         head.previous=null;
+         
+         }
+         length--;
+         
+    }
+     
+     //delete Last
+    public void deleteLast(){
+         if(isEmpty())
+         {System.out.println("Empty List");}
+         if(tail==head)
+         {tail=null;head=null;}
+         else{
+         ListNode temp;
+         temp=tail.previous;
+         tail=null;
+         tail=temp;
+        tail.next=null;
+         
+         }
+         length--;
+         }
+    
+      public static void main(String []args){
+        System.out.println("++++++++++++DoublyLinkedList+++++++++++++++");
+        DoublyLinkedlist dl=new DoublyLinkedlist();
+        dl.insertFirst(1);
+        dl.insertFirst(2);
+        dl.insertFirst(3);
+        dl.insertFirst(4);
+        dl.insertLast(0);
+        System.out.println("length of doublylinkedList = "+dl.lengthOfList());
+        dl.displayforward();
+        dl.deleteFirst();
+        System.out.println("ListAfter deletion First");
+        dl.displayforward();
+         System.out.println("length of doublylinkedList after deletion= "+dl.lengthOfList());
+         
+        dl.deleteLast();
+        System.out.println("ListAfter deletion Last");
+        dl.displayforward();
+         System.out.println("length of doublylinkedList after deletion= "+dl.lengthOfList());
+     }
+}
