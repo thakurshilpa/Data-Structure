@@ -9,7 +9,7 @@ public class DoublyLinkedlist
         private ListNode next;
         private ListNode previous;
         private int data ;
-        private ListNode(int data)a
+        private ListNode(int data)
         {this.data=data;}
     }
     public DoublyLinkedlist()
@@ -110,6 +110,7 @@ public class DoublyLinkedlist
          }
          length--;
          }
+         
     
       public static void main(String []args){
         System.out.println("++++++++++++DoublyLinkedList+++++++++++++++");
@@ -130,5 +131,9 @@ public class DoublyLinkedlist
         System.out.println("ListAfter deletion Last");
         dl.displayforward();
          System.out.println("length of doublylinkedList after deletion= "+dl.lengthOfList());
+         dl.deleteFirst();
+         
+          System.out.println("length of doublylinkedList after first Element deletion= "+dl.lengthOfList());
+         
      }
 }
